@@ -1,0 +1,365 @@
+/* ==========================================================================
+   Portfolio stylesheet
+   Type: Inter (body/display) + JetBrains Mono (labels, meta, tags)
+   Signature: axis-tick rule — a hairline with small perpendicular ticks,
+   used as a section divider (a quiet nod to a chart's x-axis baseline).
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --paper: #F7F7F4;
+  --paper-raised: #FFFFFF;
+  --ink: #15171B;
+  --ink-soft: #5B5F68;
+  --ink-faint: #8A8D94;
+  --line: #DEDFDA;
+  --accent: #2F5D9C;      /* muted cobalt — primary */
+  --accent-warm: #C97A2E; /* amber — secondary / hover */
+  --code-bg: #EEEEE9;
+
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --max-width: 880px;
+  --radius: 3px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { color: var(--accent-warm); }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* -------------------------------------------------------------------------
+   Signature element: axis-tick divider
+   A hairline rule with short ticks descending at intervals, like the
+   baseline of a chart's x-axis. Used to separate major sections.
+   ------------------------------------------------------------------------- */
+.axis-rule {
+  border: 0;
+  height: 9px;
+  margin: 0;
+  background-image:
+    linear-gradient(var(--line), var(--line));
+  background-repeat: repeat-x;
+  background-size: 1px 9px;
+  background-position: 0 0;
+  position: relative;
+}
+.axis-rule {
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--line) 0,
+      var(--line) 1px,
+      transparent 1px,
+      transparent 32px
+    ),
+    linear-gradient(var(--line), var(--line));
+  background-size: auto 9px, 100% 1px;
+  background-position: 0 0, 0 0;
+  background-repeat: repeat-x, no-repeat;
+}
+
+/* -------------------------------------------------------------------------
+   Header / landing hero
+   ------------------------------------------------------------------------- */
+.site-header {
+  padding: 88px 0 48px;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.site-header h1 {
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.role-line {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin: 0 0 28px;
+  font-weight: 500;
+}
+
+.bio {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  margin: 0 0 32px;
+  font-size: 1.02rem;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--ink-faint);
+  align-items: center;
+}
+.contact-row a { color: var(--ink); }
+.contact-row a:hover { color: var(--accent-warm); }
+.contact-row .sep { color: var(--line); }
+
+/* -------------------------------------------------------------------------
+   Projects section
+   ------------------------------------------------------------------------- */
+.projects-section {
+  padding: 56px 0 96px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.section-heading h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.section-count {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.project-card {
+  background: var(--paper-raised);
+  padding: 30px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.15s ease;
+}
+
+.project-card:hover {
+  background: #FBFAF7;
+}
+
+.project-card .tick {
+  width: 22px;
+  height: 8px;
+  border-left: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.project-card h3 a { color: var(--ink); }
+.project-card h3 a:hover { color: var(--accent); }
+
+.project-card p {
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  background: var(--code-bg);
+  padding: 3px 8px;
+  border-radius: var(--radius);
+}
+
+.project-link {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.project-link:hover { color: var(--accent-warm); }
+.project-link .arrow { transition: transform 0.15s ease; }
+.project-link:hover .arrow { transform: translateX(3px); }
+
+/* -------------------------------------------------------------------------
+   Footer
+   ------------------------------------------------------------------------- */
+.site-footer {
+  padding: 32px 0 60px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+/* -------------------------------------------------------------------------
+   Project detail page
+   ------------------------------------------------------------------------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 40px 0 0;
+}
+.back-link:hover { color: var(--accent-warm); }
+
+.project-header {
+  padding: 24px 0 40px;
+}
+
+.project-header h1 {
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 14px 0 14px;
+}
+
+.meta-row {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.project-description {
+  max-width: 68ch;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+.viz-section {
+  padding: 12px 0 48px;
+}
+
+.viz-frame-label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-frame-label .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.viz-frame {
+  border: 1px solid var(--line);
+  background: var(--paper-raised);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.viz-frame iframe {
+  display: block;
+  width: 100%;
+  height: 560px;
+  border: none;
+}
+
+.repo-link-row {
+  padding: 8px 0 80px;
+}
+
+.repo-link {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.repo-link:hover {
+  border-color: var(--accent-warm);
+  color: var(--accent-warm);
+}
+
+/* -------------------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------------------- */
+@media (max-width: 680px) {
+  .site-header { padding: 56px 0 36px; }
+  .project-grid { grid-template-columns: 1fr; }
+  .viz-frame iframe { height: 420px; }
+  .section-heading { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
