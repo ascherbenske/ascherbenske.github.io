@@ -308,6 +308,10 @@ button:focus-visible {
   gap: 8px;
 }
 
+.viz-header {
+  margin-top: 0%;
+}
+
 .viz-frame-label .dot {
   width: 6px;
   height: 6px;
@@ -330,7 +334,7 @@ button:focus-visible {
 }
 
 .repo-link-row {
-  padding: 8px 0 80px;
+  padding: 8px 0px 40px;
 }
 
 .repo-link {

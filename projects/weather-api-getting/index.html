@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project One Title — Your Name</title>
+  <title>End-to-End Weather Data — Adam Scherbenske</title>
   <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
@@ -14,36 +14,36 @@
 
   <section class="project-header wrap">
     <span class="eyebrow">Project</span>
-    <h1>Project One Title</h1>
+    <h1>End-to-End Weather Data</h1>
     <div class="meta-row">
       <span>2026</span>
       <span>·</span>
-      <span>python · pandas · plotly</span>
+      <span>python · APIs · BeautifulSoup · pandas</span>
     </div>
     <p class="project-description">
-      Describe the question this project answers: what data you used, why it
-      mattered, and what approach you took. Keep it to a short paragraph —
-      this is the "why should I look at this" summary, not the full writeup
-      (save that for the repo's README).
+      This project demonstrates the techniques required to build an end-to-end data pipeline to 
+      exercise my ability to do some basic data gathering, transformation, and visualization. 
+      It pulls the top five to six cities in each state from a Wikipedia page, latitude and longitude
+      from Open Weather Map, and weather data from Open Meteo. The pipeline cleans and merges using pandas 
+      and then visualizes the data with Plotly. 
     </p>
   </section>
 
   <!-- <hr class="axis-rule wrap"> -->
+  <div class="repo-link-row wrap">
+    <a class="repo-link" href="https://github.com/ascherbenske/weather-analysis" target="_blank" rel="noopener">
+      View repository <span class="arrow">→</span>
+    </a>
+  </div>
 
   <section class="viz-section wrap">
     <div class="viz-frame-label">
       <span class="dot"></span> Interactive — plotly
     </div>
+    <h2 class="viz-header">Temperature Highs for Each State's Five Most Populous Cities</h2>
     <div class="viz-frame">
       <iframe src="plot.html" loading="lazy" title="Project One interactive chart"></iframe>
     </div>
   </section>
-
-  <div class="repo-link-row wrap">
-    <a class="repo-link" href="https://github.com/yourusername/project-one-repo" target="_blank" rel="noopener">
-      View repository <span class="arrow">→</span>
-    </a>
-  </div>
-
 </body>
 </html>
